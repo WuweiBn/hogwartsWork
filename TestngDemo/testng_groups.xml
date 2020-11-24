@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="testng_groups">
+    <test name="Testng01">
+        <groups>
+            <define name="all">
+                <include name="group01"/>
+                <include name="group02"/>
+            </define>
+            <run>
+                <include name="all"/>
+                <exclude name="group02"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.packageA.ClassATest"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="parameter">
+    <test name="param">
+        <parameter name="x" value="3"/>
+        <parameter name="y" value="2"/>
+        <parameter name="z" value="6"/>
+        <classes>
+            <class name="com.hogwarts.demo.Testng.parameter">
+            </class>
+        </classes>
+    </test>
+
+</suite>

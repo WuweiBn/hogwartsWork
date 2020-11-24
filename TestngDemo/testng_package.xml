@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="Testng_package">
+    <test name="package">
+        <packages>
+            <package name="com.packageA"/>
+            <package name="com.packageB"/>
+        </packages>
+
+    </test>
+</suite>
