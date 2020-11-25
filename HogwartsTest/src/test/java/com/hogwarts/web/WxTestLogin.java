@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
@@ -21,11 +22,16 @@ public class WxTestLogin {
 
     public static WebDriver driver;
 
+    @BeforeAll
+    public static void beforall(){
+
+    }
+
     /*
      *登录企业微信并将cookies 写入yaml文件中
      *  */
     @Test
-    public void testLogi() throws IOException, InterruptedException {
+    public void testLogig() throws IOException, InterruptedException {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("https://work.weixin.qq.com/wework_admin/frame");
