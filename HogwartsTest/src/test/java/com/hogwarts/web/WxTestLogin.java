@@ -25,7 +25,7 @@ public class WxTestLogin {
      *登录企业微信并将cookies 写入yaml文件中
      *  */
     @Test
-    public void testLogin() throws IOException, InterruptedException {
+    public void testLogi() throws IOException, InterruptedException {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("https://work.weixin.qq.com/wework_admin/frame");
