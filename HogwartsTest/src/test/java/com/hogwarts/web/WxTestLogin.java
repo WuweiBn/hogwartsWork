@@ -25,7 +25,7 @@ public class WxTestLogin {
     @BeforeAll
     public static void beforall(){
 
-        System.out.println("测试git");
+        System.out.println("测试完成");
     }
 
     /*
