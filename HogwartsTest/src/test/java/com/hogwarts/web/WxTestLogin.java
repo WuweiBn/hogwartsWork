@@ -25,6 +25,7 @@ public class WxTestLogin {
     @BeforeAll
     public static void beforall(){
 
+        System.out.println("开始执行自动化测试");
     }
 
     /*
