@@ -64,11 +64,10 @@ public class ContactTest {
                         driver.manage().addCookie(new Cookie(cookieMap.get("name").toString(), cookieMap.get("value").toString()));
                     }
             );
-            System.out.println("----------------------------");
             Thread.sleep(5000);
             //刷新页面
             driver.navigate().refresh();
-            System.out.println("============================");
+
         } else {
             needLogin();
         }
