@@ -57,18 +57,17 @@ public class ContactTest {
             };
 
             List<HashMap<String, Object>> cookies = (List<HashMap<String, Object>>) mapper.readValue(file, typeReference);
-            System.out.println(cookies);
+            System.out.println("获取到的cookies："+cookies);
 
             //重新设置cooki
             cookies.forEach(cookieMap -> {
                         driver.manage().addCookie(new Cookie(cookieMap.get("name").toString(), cookieMap.get("value").toString()));
                     }
             );
-            System.out.println("----------------------------");
             Thread.sleep(5000);
             //刷新页面
             driver.navigate().refresh();
-            System.out.println("============================");
+
         } else {
             needLogin();
         }
