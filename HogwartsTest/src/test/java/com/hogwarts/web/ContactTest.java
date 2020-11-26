@@ -20,13 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ContactTest {
 
-
-    private static WebDriver driver;
-
-
-    /*
-     *  */
-
+    public static WebDriver driver;
 
     public static void needLogin() throws IOException, InterruptedException {
         //扫码登陆
