@@ -78,7 +78,7 @@ public class ContactTest {
     @Test
     void contackadd() {
         driver.findElement(By.xpath("//*[@id=\"_hmt_click\"]/div[1]/div[4]/div[2]/a[1]/div/span[2]")).click();
-        driver.findElement(By.name("username")).sendKeys("Wuweibin");
+        driver.findElement(By.name("username")).sendKeys("Wuweibin1git");
         driver.findElement(By.name("acctid")).sendKeys("weibin");
         driver.findElement(By.xpath("//*[@id=\"memberAdd_mail\"]")).sendKeys("752061536@qq.com");
         driver.findElement(By.xpath("//*[@id=\"memberAdd_acctid\"]")).sendKeys("Nb151112");
@@ -100,6 +100,7 @@ public class ContactTest {
     void click(By by) {
         driver.findElement(by).click();
     }
+
 
     void sendKeys(By by, String string) {
         driver.findElement(by).sendKeys(string);
