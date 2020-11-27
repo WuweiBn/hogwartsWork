@@ -1,6 +1,6 @@
 ---
 - name: "wwrtx.refid"
-  value: "615149604883739"
+  value: "6151496043587376"
   path: "/"
   domain: ".work.weixin.qq.com"
   expiry: null
@@ -21,21 +21,21 @@
   httpOnly: true
   secure: false
 - name: "wwrtx.d2st"
-  value: "a745915"
+  value: "a9794038"
   path: "/"
   domain: ".work.weixin.qq.com"
   expiry: null
   httpOnly: false
   secure: false
 - name: "_gid"
-  value: "GA1.2.199247468.1606374884"
+  value: "GA1.2.1472766064.1606460387"
   path: "/"
   domain: ".qq.com"
-  expiry: 1606461289000
+  expiry: 1606546793000
   httpOnly: false
   secure: false
 - name: "wwrtx.sid"
-  value: "EL1ZlNwVz10k_qEv4xBZ9BXs-2CfRxuuAPoo97BvG135_ES6jFuTc5eM5cj04Ht2"
+  value: "EL1ZlNwVz10k_qEv4xBZ9KYHc_2zkZh2M9qPFwQrU46Y0vGTVeCXI6IihdeQgNdG"
   path: "/"
   domain: ".work.weixin.qq.com"
   expiry: null
@@ -45,14 +45,14 @@
   value: "0"
   path: "/"
   domain: ".work.weixin.qq.com"
-  expiry: 1637910883000
+  expiry: 1637996386000
   httpOnly: false
   secure: false
 - name: "ww_rtkey"
-  value: "5iuoceq"
+  value: "3kqu1t4"
   path: "/"
   domain: "work.weixin.qq.com"
-  expiry: 1606406419000
+  expiry: 1606491922000
   httpOnly: true
   secure: false
 - name: "wxpay.vid"
@@ -66,18 +66,18 @@
   value: "1"
   path: "/"
   domain: ".qq.com"
-  expiry: 1606374944000
+  expiry: 1606460447000
   httpOnly: false
   secure: false
 - name: "_ga"
-  value: "GA1.2.1464882250.1606374884"
+  value: "GA1.2.1388347259.1606460387"
   path: "/"
   domain: ".qq.com"
-  expiry: 1669446889000
+  expiry: 1669532393000
   httpOnly: false
   secure: false
 - name: "wwrtx.vst"
-  value: "qAlMTdqz3etdwAKITcB8-FRnVGIazhi6_akyD7LoT9StgEgsMCIgqam3mU9zXOIGiT0Nku9Ma2zeSVe6zzY0BeVWdo_CrI3sLqWoArS06S1MAwWAra0kiWAhD6yF91FzksUIj-NWAjlc5qsxvvEmJeRQMfSl0wy-JwaJiQuOIHR6Rsdd6O4gvMtM1JndEoqL2074norAGAW-wYD3zlhjzDZoMZbEPF5g4MA5PY55-3YZogFBMf4Mgr-s0AGAMscJ76TwGmm8dJE1UGSHzqm2tQ"
+  value: "1DZD6CWUPYT44wHFOnJohozee5npHdE1CIz6JnwT5lNE9WPX2rz_MVLnEwl3w7RwjrZTHryemUO4DzXuuhVtH9nHroMFsesgWKiMROE6aSwfs-FpLqNsPReNGlHgSZ2AMPbGn2KMOuJQkfgmieRT0uaw4av8by_vUK22LPCC3QqQjA09E9XpaDpNZpah1I8LJlzwbPLU0ajuY92ceLs7EuECZkNT3zDC6VQkAZFQB5R_gwFSV6zhNFSTto80yP2Xn2W5YxkCTTPafBkdn98KSw"
   path: "/"
   domain: ".work.weixin.qq.com"
   expiry: null
@@ -94,7 +94,7 @@
   value: "zh"
   path: "/"
   domain: ".work.weixin.qq.com"
-  expiry: 1608966891000
+  expiry: 1609052395000
   httpOnly: false
   secure: false
 - name: "wwrtx.ref"

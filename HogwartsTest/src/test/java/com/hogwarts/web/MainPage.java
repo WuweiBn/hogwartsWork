@@ -1,0 +1,92 @@
+package com.hogwarts.web;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+public class MainPage {
+
+    WebDriver driver;
+
+    void needLogin() throws IOException, InterruptedException {
+        //扫码登陆
+        WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.get("https://work.weixin.qq.com/wework_admin/frame");
+
+        //等待20秒
+        Thread.sleep(20000);
+        //获取cookies
+        Set<Cookie> cookies = driver.manage().getCookies();
+        //创建一个yaml文件
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        //将cookies存入yaml文件中
+        mapper.writeValue(new File("cookies.yaml"), cookies);
+        System.out.println("cookies已过期，请重新扫码登录");
+
+    }
+
+    void beforeAll() throws IOException, InterruptedException {
+
+        File file = new File("cookies.yaml");
+
+        if (file.exists()) {
+            //利用cooking复用session扫码登录
+            driver = new ChromeDriver();
+            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+            driver.get("https://work.weixin.qq.com/wework_admin/frame");
+
+            //读取cookie
+            ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+            TypeReference typeReference = new TypeReference<List<HashMap<String, Object>>>() {
+            };
+
+            List<HashMap<String, Object>> cookies = (List<HashMap<String, Object>>) mapper.readValue(file, typeReference);
+            System.out.println(cookies);
+
+            //重新设置cooki
+            cookies.forEach(cookieMap -> {
+                        driver.manage().addCookie(new Cookie(cookieMap.get("name").toString(), cookieMap.get("value").toString()));
+                    }
+            );
+            Thread.sleep(5000);
+            //刷新页面
+            driver.navigate().refresh();
+
+        } else {
+            needLogin();
+        }
+
+    }
+
+    public MainPage() throws IOException, InterruptedException {
+        this.beforeAll();
+
+    }
+
+    public Contactpage contact() {
+        click(By.id("menu_contacts"));
+        return new Contactpage(driver);
+    }
+
+    void click(By by) {
+        driver.findElement(by).click();
+    }
+
+    void sendKeys(By by, String string) {
+        driver.findElement(by).sendKeys(string);
+    }
+
+}

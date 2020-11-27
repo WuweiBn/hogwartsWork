@@ -18,7 +18,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-public class ContactTest {
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class ContactClassicTest {
 
     public static WebDriver driver;
 
@@ -29,14 +31,14 @@ public class ContactTest {
         driver.get("https://work.weixin.qq.com/wework_admin/frame");
 
         //等待20秒
-        Thread.sleep(20000);
+        Thread.sleep(10000);
         //获取cookies
         Set<Cookie> cookies = driver.manage().getCookies();
         //创建一个yaml文件
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         //将cookies存入yaml文件中
         mapper.writeValue(new File("cookies.yaml"), cookies);
-        System.out.println(0);
+        System.out.println("cookies已过期，请重新扫码登录");
 
     }
 
@@ -96,10 +98,21 @@ public class ContactTest {
 
     }
 
+    @Test
+    void departemtSearch() {
+        click(By.id("menu_contacts"));
+        sendKeys(By.id("memberSearchInput"), "小牛猪");
+        String content = driver.findElement(By.cssSelector(".js_party_info")).getText();
+        System.out.println("第一次获取:" + content);
+        click(By.cssSelector(".ww_icon_AddMember.ww_icon_AddMember"));
+        content = driver.findElement(By.cssSelector(".js_party_info")).getText();
+        System.out.println("第二次获取:" + content);
+        assertTrue(content.contains("无任何成员"));
+    }
+
     void click(By by) {
         driver.findElement(by).click();
     }
-
 
     void sendKeys(By by, String string) {
         driver.findElement(by).sendKeys(string);
