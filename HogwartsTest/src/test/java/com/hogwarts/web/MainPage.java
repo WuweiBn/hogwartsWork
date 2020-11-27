@@ -16,13 +16,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-public class MainPage {
+public class MainPage extends BasePage{
 
-    WebDriver driver;
 
     void needLogin() throws IOException, InterruptedException {
         //扫码登陆
-        WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("https://work.weixin.qq.com/wework_admin/frame");
 
@@ -79,14 +77,6 @@ public class MainPage {
     public Contactpage contact() {
         click(By.id("menu_contacts"));
         return new Contactpage(driver);
-    }
-
-    void click(By by) {
-        driver.findElement(by).click();
-    }
-
-    void sendKeys(By by, String string) {
-        driver.findElement(by).sendKeys(string);
     }
 
 }
