@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-public class MainPage extends BasePage{
+public class MainPage extends BasePage {
 
 
     void needLogin() throws IOException, InterruptedException {
@@ -42,7 +42,7 @@ public class MainPage extends BasePage{
 
         if (file.exists()) {
             //利用cooking复用session扫码登录
-            driver = new ChromeDriver();
+
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
             driver.get("https://work.weixin.qq.com/wework_admin/frame");
 
@@ -70,7 +70,7 @@ public class MainPage extends BasePage{
     }
 
     public MainPage() throws IOException, InterruptedException {
-
+        super(new ChromeDriver());
         //初始化你的selenium，复用session 打开网站
         this.beforeAll();
 

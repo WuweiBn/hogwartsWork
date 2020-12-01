@@ -11,10 +11,6 @@ public class BasePage {
         this.driver = driver;
     }
 
-    public BasePage() {
-    }
-
-
     void click(By by) {
         driver.findElement(by).click();
     }

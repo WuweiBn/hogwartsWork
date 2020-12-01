@@ -46,7 +46,6 @@ public class ContactClassicTest {
     public static void beforeAll() throws IOException, InterruptedException {
 
         File file = new File("cookies.yaml");
-
         if (file.exists()) {
             //利用cooking复用session扫码登录
             driver = new ChromeDriver();
@@ -108,6 +107,14 @@ public class ContactClassicTest {
         content = driver.findElement(By.cssSelector(".js_party_info")).getText();
         System.out.println("第二次获取:" + content);
         assertTrue(content.contains("无任何成员"));
+    }
+
+    @Test
+    void delete(){
+        click(By.xpath("//*[@id=\"_hmt_click\"]/div[1]/div[4]/div[2]/a[1]/div/span[2]"));
+        click(By.xpath("//*[@id=\"1688853844972200_anchor\"]"));
+        click(By.xpath("//*[@id=\"1688853844972200_anchor\"]/span"));
+        click(By.linkText("删除"));
     }
 
     void click(By by) {

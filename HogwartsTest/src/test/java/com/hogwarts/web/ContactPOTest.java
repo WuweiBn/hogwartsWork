@@ -1,5 +1,7 @@
 package com.hogwarts.web;
 
+
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -8,24 +10,35 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ContactPOTest {
 
+    private static MainPage mian;
+
+    @BeforeAll
+    static void befoer() throws IOException, InterruptedException {
+        mian = new MainPage();
+    }
+
+    /*
+     * 搜索部门
+     * */
     @Test
     void testAddmember() throws IOException, InterruptedException {
-        //打开页面
-        //复用session登录
-        MainPage mainPage = new MainPage();
-        //跳转页面
-        //添加成员
-        Contactpage contactpage = mainPage.contact();
-//        contactpage.addMember("zhangsan", "12345", "15600009878");
-        contactpage.searchDepart("小牛猪");
-        String content = contactpage.getPartyInfo();
-        assertTrue(content.contains("无任何成员"));
+
+        assertTrue(mian.contact().searchDepart("小牛猪").getPartyInfo().contains("无任何成员"));
+    }
+
+    /*
+     * 添加部门
+     * */
+    @Test
+    void testDepartAdd() {
+
+        String departName = "Bn_test";
+        assertTrue(mian.contact().addDepart(departName).searchDepart(departName).getPartyInfo().contains(departName));
     }
 
     @Test
-    void testAddmember1() throws IOException, InterruptedException {
-
-        assertTrue(new MainPage().contact().searchDepart("小牛猪").getPartyInfo().contains("无任何成员"));
+    void deleteDepart() throws InterruptedException {
+        mian.contact().clearDepart("小牛猪");
     }
 
 }
