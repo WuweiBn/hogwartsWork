@@ -18,4 +18,7 @@ public class BasePage {
     void sendKeys(By by, String string) {
         driver.findElement(by).sendKeys(string);
     }
+    void clear(By by){
+        driver.findElement(by).clear();
+    }
 }
