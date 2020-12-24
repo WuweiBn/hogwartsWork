@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import java.util.concurrent.TimeUnit;
 
 public class BasePageApp {
-    AppiumDriver driver;
+    protected AppiumDriver driver;
 
     public BasePageApp(AppiumDriver driver) {
         this.driver = driver;

@@ -4,28 +4,42 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 
 public class ContactpageApp extends BasePageApp {
+    private By menu = By.id("i6i");
+    private By searchButton = By.id("i6n");
+    private By addDepartLocator = By.xpath("//*[@text='添加子部门']");
+    private By editText = By.className("android.widget.EditText");
+    private By departName = By.xpath("//android.widget.ListView/android.widget.RelativeLayout[2]//android.widget.TextView");
+    private By closeButton = By.xpath("//*[contains(@resource-id,'gpf') or contains(@resource-id,'i6d') ]");
+    private By back = By.id("i63");
 
     public ContactpageApp(AppiumDriver driver) {
         super(driver);
     }
 
     public ContactpageApp memberAdd(String username, String phone) {
-        appClick(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.RelativeLayout/android.widget.ListView/android.widget.RelativeLayout[18]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView"));
-        seleep();
-        appClick(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.RelativeLayout[2]/android.widget.LinearLayout"));
-        appSendKeys(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.RelativeLayout/android.widget.EditText"), username);
+        appClick(menu);
+//      添加成员的2种定位法
+//        appClick(By.id("e30"));
+        appClick(By.xpath("//*[@text='添加成员']"));
+//      手动输入添加的2种定位法
+//        appClick(By.id("cox"));
+        appClick(By.xpath("//*[@text='手动输入添加']"));
+        appSendKeys(By.id("b4t"), username);
         appSendKeys(By.id("fow"), phone);
-        appClick(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[6]/android.widget.RelativeLayout/android.widget.RelativeLayout"));
+        appClick(By.xpath("//*[@text='设置部门']"));
         seleep();
-        appClick(By.id("gsh"));
-        appClick(By.id("i6k"));
+//      确定的2种定位方放
+//        appClick(By.id("gsh"));
+        appClick(By.xpath("//*[@text='确定(1)']"));
+        appClick(By.xpath("//*[@text='保存']"));
+        appClick(back);
+        appClick(closeButton);
         return this;
-
     }
 
     public ContactpageApp memberSearch(String name) {
-        appClick(By.id("i6n"));
-        appSendKeys(By.id("gpg"), name);
+        appClick(searchButton);
+        appSendKeys(editText, name);
         return this;
 
     }
@@ -42,5 +56,18 @@ public class ContactpageApp extends BasePageApp {
 
     }
 
+    public String getCurrentDepartName() {
+        return driver.findElement(departName).getText();
+    }
+
+    public ContactpageApp departAdd(String name) {
+        appClick(menu);
+        appClick(addDepartLocator);
+        appSendKeys(editText, name);
+        appClick(By.xpath("//*[@text='确定']"));
+        appClick(closeButton);
+        seleep();
+        return this;
+    }
 
 }

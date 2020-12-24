@@ -1,5 +1,6 @@
 package com.hogwarts.appium;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +20,8 @@ public class ContactpageAppTest {
      * */
     @Test
     public void memberAdd() {
-        manpageApp.contactPageApp().memberAdd("蛋蛋", "18911430000");
+        String name = "兔tt";
+        Assertions.assertEquals(name, manpageApp.contactPageApp().memberAdd(name, "18911411111").memberSearch(name).getCurrentDepartName());
     }
 
     /*
@@ -45,4 +47,14 @@ public class ContactpageAppTest {
     public void memberDelete() {
         manpageApp.contactPageApp().memberDelete();
     }
+
+    /*
+     * 增加部门
+     * */
+    @Test
+    void departAdd() {
+        String name = "第四期12111";
+        Assertions.assertEquals(name, manpageApp.contactPageApp().departAdd(name).memberSearch("12111").getCurrentDepartName());
+    }
+
 }

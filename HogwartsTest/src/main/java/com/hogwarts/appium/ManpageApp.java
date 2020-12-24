@@ -10,8 +10,8 @@ import java.net.URL;
 public class ManpageApp extends BasePageApp {
     DesiredCapabilities caps = new DesiredCapabilities();
 
-    public void loginWx() throws MalformedURLException {
-
+    public ManpageApp() throws MalformedURLException {
+        super();
         caps.setCapability("platformName", "Android");
         caps.setCapability("deviceName", "127.0.0.1:7555");
         caps.setCapability("appPackage", "com.tencent.wework");
@@ -21,15 +21,10 @@ public class ManpageApp extends BasePageApp {
         seleep();
     }
 
-    public ManpageApp() throws MalformedURLException {
-        super();
-        this.loginWx();
-    }
-
 
     public ContactpageApp contactPageApp() {
         //进入通讯录界面
-        appClick(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.TextView"));
+        appClick(By.xpath("//*[@text='通讯录']"));
         return new ContactpageApp(driver);
     }
 }
